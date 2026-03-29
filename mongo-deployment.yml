@@ -61,3 +61,16 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 3
           failureThreshold: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: clahanstore
+spec:
+  clusterIP: None
+  selector:
+    app: mongodb
+  ports:
+  - port: 27017
+    targetPort: 27017
