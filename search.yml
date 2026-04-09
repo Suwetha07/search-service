@@ -8,6 +8,9 @@ spec:
   replicas: 1
   updateStrategy:
     type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 0
   selector:
     matchLabels:
       app: search-service
@@ -32,7 +35,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: clahanstore-config
-              key: PRODUCT_SERVICE_URL
+              key: SEARCH_SERVICE_URL
         - name: MONGO_URI
           valueFrom:
             secretKeyRef:
