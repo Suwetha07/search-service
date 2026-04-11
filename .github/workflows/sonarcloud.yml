@@ -1,4 +1,4 @@
-name:  search Pipeline
+name:  search  CI Pipeline
 
 on:
   push:
@@ -39,8 +39,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         timeout-minutes: 5
 
-     
-
+    
       - name: Snyk Security Scan
         uses: snyk/actions/node@master
         env:
